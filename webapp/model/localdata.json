@@ -1,0 +1,33 @@
+{
+	"aStatuses": [{
+		"status": "APPROVED"
+	}, {
+		"status": "REJECTED"
+	}],
+	"aOprs": [{
+		"opr": "GT"
+	}, {
+		"opr": "LT"
+	}, {
+		"opr": "EQ"
+	}, {
+		"opr": "GE"
+	}, {
+		"opr": "LE"
+	}],
+	"aSortCols": [{
+		"column": "Prdid"
+	}, {
+		"column": "Prdname"
+	}, {
+		"column": "Prddesc"
+	}, {
+		"column": "Prdprice"
+	}, {
+		"column": "Status"
+	}],
+	"aSuppliers": [
+	
+	]
+
+}

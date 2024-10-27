@@ -1,0 +1,89 @@
+<mvc:View controllerName="com.demoB61Demo.controller.View1" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:ux="sap.uxap">
+	<Page title="I am First View">
+		<content>
+			<Panel headerText="Search Products">
+				<HBox class="sapUiSmallMargin">
+					<VBox>
+						<Label text="Product ID"></Label>
+						<Input id="idIpPrdId" showValueHelp="true" valueHelpRequest="onPressValueHelp"></Input>
+					</VBox>
+					<VBox class="sapUiSmallMarginBegin">
+						<Label text="Product Price"></Label>
+						<HBox>
+							<ComboBox id="idCbOpr" items="{localModel>/aOprs}">
+								<core:Item text="{localModel>opr}"></core:Item>
+							</ComboBox>
+							<Input id="idIpPrdPrice"></Input>
+						</HBox>
+					</VBox>
+					<VBox class="sapUiSmallMarginBegin">
+						<Label text="Product Status"></Label>
+						<ComboBox id="idCbStatus" items="{localModel>/aStatuses}">
+							<core:Item text="{localModel>status}"></core:Item>
+						</ComboBox>
+					</VBox>
+				</HBox>
+				<FlexBox justifyContent="End">
+					<Button text="Go" type="Accept" press="onGo"></Button>
+					<Button text="Reset" icon="sap-icon://reset" type="Reject"></Button>
+				</FlexBox>
+			</Panel>
+			<Table items="{/ProductSet}" id="idTable" mode="SingleSelectLeft">
+				<headerToolbar>
+					<Toolbar>
+						<Title text="Product List"></Title>
+						<ToolbarSpacer></ToolbarSpacer>
+						<Button text="Edit" icon="sap-icon://edit" press="onEdit" type="Emphasized"></Button>
+						<Button text="Delete" icon="sap-icon://delete" press="openConfirmDialog" type="Reject"></Button>
+						<ComboBox id="idCbSort" items="{localModel>/aSortCols}" placeholder="Sort By">
+							<core:Item text="{localModel>column}"></core:Item>
+						</ComboBox>
+						<Button id="idBtnAsc" icon="sap-icon://sort-ascending" type="Emphasized" press="onToggleSort"></Button>
+						<Button id="idBtnDesc" icon="sap-icon://sort-descending" type="Emphasized" press="onToggleSort"></Button>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Text text="Product Id"></Text>
+					</Column>
+					<Column>
+						<Text text="Product Name"></Text>
+					</Column>
+					<Column>
+						<Text text="Product Description"></Text>
+					</Column>
+					<Column>
+						<Text text="Product Price"></Text>
+					</Column>
+					<Column>
+						<Text text="Currency Code"></Text>
+					</Column>
+					<Column>
+						<Text text="Product Status"></Text>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Active" press="onPressPrd">
+						<cells>
+							<Text text="{Prdid}"></Text>
+							<Text text="{Prdname}"></Text>
+							<Text text="{Prddesc}"></Text>
+							<Text text="{path:'Prdprice',formatter:'.f.formatCurrency'}"></Text>
+							<Text text="{Currcode}"></Text>
+							<ObjectStatus text="{Status}" state="{path:'Status',formatter:'.f.colorStatus'}"></ObjectStatus>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+			
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button text="Create New Product" press="onCreate" type="Emphasized" icon="sap-icon://add"></Button>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

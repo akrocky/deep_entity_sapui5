@@ -1,0 +1,69 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.demoB61Demo.controller.View3"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:f="sap.ui.layout.form">
+	<Page title="Create New Product">
+		<content>
+			<f:SimpleForm title="Product Details" editable="true" layout="ResponsiveGridLayout" labelSpanL="2" labelSpanM="2" emptySpanL="5"
+				emptySpanM="5">
+				<f:content>
+					<Label text="Product ID"></Label>
+					<Input id="idIpPrdId"></Input>
+					<Label text="Product Name"></Label>
+					<Input id="idIpPrdName"></Input>
+					<Label text="Product Description"></Label>
+					<Input id="idIpPrdDesc"></Input>
+					<Label text="Product Price"></Label>
+					<Input id="idIpPrdPrice"></Input>
+					<Label text="Currency Code"></Label>
+					<Input id="idIpCurrcode"></Input>
+					<Label text="Product Status"></Label>
+					<Input id="idIpStatus"></Input>
+				</f:content>
+			</f:SimpleForm>
+			<Table class="sapUiSmallMargin" width="auto" items="{localModel>/aSuppliers}">
+				<headerToolbar>
+					<Toolbar>
+						<Title text="Add Suppliers"></Title>
+						<ToolbarSpacer></ToolbarSpacer>
+						<Button icon="sap-icon://add" type="Emphasized" press="onAddRow"></Button>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Text text="Supplier Id"></Text>
+					</Column>
+					<Column>
+						<Text text="Product Id"></Text>
+					</Column>
+					<Column>
+						<Text text="Supplier Name"></Text>
+					</Column>
+					<Column>
+						<Text text="Supplier Location"></Text>
+					</Column>
+					<Column>
+						<Text text="Delete"></Text>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Input value="{localModel>Supid}"></Input>
+							<Input value="{localModel>Prdid}"></Input>
+							<Input value="{localModel>Supname}"></Input>
+							<Input value="{localModel>Suploc}"></Input>
+							<Button icon="sap-icon://delete" press="onDeleteRow" type="Reject"></Button>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button text="Save" icon="sap-icon://save" press="onSave" type="Accept"></Button>
+					<Button text="Cancel" icon="sap-icon://cancel" press="onSave" type="Reject"></Button>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

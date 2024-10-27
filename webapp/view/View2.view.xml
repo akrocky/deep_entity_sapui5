@@ -1,0 +1,62 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.demoB61Demo.controller.View2"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:f="sap.ui.layout.form">
+	<Page title="I am second View" showNavButton="true" navButtonPress="onBack">
+		<content>
+			<ObjectHeader title="{Prdname}" number="{Prdprice}" numberUnit="{Currcode}" backgroundDesign="Solid">
+				<attributes>
+					<ObjectAttribute text="{Prdid}"></ObjectAttribute>
+					<ObjectAttribute text="{Prddesc}"></ObjectAttribute>
+				</attributes>
+				<statuses>
+					<ObjectStatus text="{Status}" state="{=${Status}==='APPROVED'?'Success':'Error'}"></ObjectStatus>
+				</statuses>
+			</ObjectHeader>
+			<IconTabBar id="idIconTabBar">
+				<items>
+					<IconTabFilter icon="sap-icon://hint">
+						<f:SimpleForm editable="false">
+							<f:content>
+								<Label text="Product ID"></Label>
+								<Text text="{Prdid}"></Text>
+								<Label text="Product Name"></Label>
+								<Text text="{Prdname}"></Text>
+								<Label text="Product Description"></Label>
+								<Text text="{Prddesc}"></Text>
+								<Label text="Product Price"></Label>
+								<Text text="{Prdprice}"></Text>
+								<Label text="Currency Code"></Label>
+								<Text text="{Currcode}"></Text>
+								<Label text="Product Status"></Label>
+								<Text text="{Status}"></Text>
+							</f:content>
+						</f:SimpleForm>
+					</IconTabFilter>
+					<IconTabFilter icon="sap-icon://supplier">
+						<Table items="{toSuppliers}">
+							<columns>
+								<Column>
+									<Text text="Supplier ID"></Text>
+								</Column>
+								<Column>
+									<Text text="Supplier Name"></Text>
+								</Column>
+								<Column>
+									<Text text="Supplier Location"></Text>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<Text text="{Supid}"></Text>
+										<Text text="{Supname}"></Text>
+										<Text text="{Suploc}"></Text>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</content>
+	</Page>
+</mvc:View>

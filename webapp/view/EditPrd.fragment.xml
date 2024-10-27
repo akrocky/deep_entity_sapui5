@@ -1,0 +1,27 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog title="Edit the Product">
+			<f:SimpleForm title="Product Details" editable="true" layout="ResponsiveGridLayout" labelSpanL="2" labelSpanM="2" emptySpanL="5"
+				emptySpanM="5">
+				<f:content>
+					<Label text="Product ID"></Label>
+					<Input id="idIpPrdIdEdit" value="{Prdid}" enabled="false"></Input>
+					<Label text="Product Name"></Label>
+					<Input id="idIpPrdNameEdit" value="{Prdname}"></Input>
+					<Label text="Product Description"></Label>
+					<Input id="idIpPrdDescEdit" value="{Prddesc}"></Input>
+					<Label text="Product Price"></Label>
+					<Input id="idIpPrdPriceEdit" value="{Prdprice}"></Input>
+					<Label text="Currency Code"></Label>
+					<Input id="idIpCurrcodeEdit" value="{Currcode}"></Input>
+					<Label text="Product Status"></Label>
+					<Input id="idIpStatusEdit" value="{Status}"></Input>
+				</f:content>
+			</f:SimpleForm>
+			<endButton>
+				<Button text="Cancel" type="Reject" press="onCancelEdit"></Button>
+			</endButton>
+			<beginButton>
+					<Button text="Save" type="Accept" press="onUpdate"></Button>
+			</beginButton>
+	</Dialog>
+</core:FragmentDefinition>
